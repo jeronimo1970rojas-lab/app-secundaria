@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   // PEGA TU URL DE APPS SCRIPT
-  var URL = "https://script.google.com/macros/s/AKfycbzzWdp7v8XLOzX3Iqq9dk-0JubfW-y0BJaQMYIM-0l8Q66w37W9YlfICShXX76NI_fC/exec";
+  var URL = "https://script.google.com/macros/s/AKfycbxL1aoYThkylEKiQ2hSBczPelthj1TxwihF0CZ_kDbfhkk5E2sK-9ByPiaMJPaWO_QW/exec";
 
   // PANTALLA INICIAL
   document.getElementById("contenido").innerHTML = `
