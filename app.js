@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <img src="logo.png" class="logo">
 
     <h1 class="titulo">
-      PRE-PROMO Paralelo "B"
+      SECUNDARIA
     </h1>
 
     <p class="subtitulo">
