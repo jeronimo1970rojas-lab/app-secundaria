@@ -1,0 +1,187 @@
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#eef3f8;
+  color:#222;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+/* PANTALLAS */
+.pantalla{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  min-height:100vh;
+  text-align:center;
+  padding:20px;
+}
+
+.azul{
+  background:linear-gradient(135deg,#0d47a1,#42a5f5);
+  color:white;
+}
+
+.logo{
+  width:120px;
+  margin-bottom:20px;
+}
+
+.profesor{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid white;
+  margin-top:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+.container{
+  padding-bottom:90px;
+}
+
+/* HEADER */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:linear-gradient(135deg,#1565c0,#42a5f5);
+  color:white;
+  padding:18px;
+  border-radius:0 0 25px 25px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.topbar-content{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.topbar-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.topbar-logo{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:white;
+  padding:5px;
+}
+
+.topbar h2{
+  margin:0;
+  font-size:20px;
+}
+
+.topbar p{
+  margin:3px 0 0 0;
+  opacity:0.9;
+  font-size:14px;
+}
+
+/* TARJETAS */
+.card{
+  background:white;
+  padding:18px;
+  margin:15px;
+  border-radius:20px;
+  box-shadow:0 4px 18px rgba(0,0,0,0.08);
+  animation:fadeIn 0.3s ease;
+}
+
+.card-title{
+  font-weight:bold;
+  margin-bottom:10px;
+  font-size:18px;
+}
+
+/* NOTAS */
+.nota-verde{
+  border-left:6px solid #43a047;
+}
+
+.nota-amarilla{
+  border-left:6px solid #fbc02d;
+}
+
+.nota-roja{
+  border-left:6px solid #e53935;
+}
+
+/* BOTONES */
+.boton{
+  background:linear-gradient(135deg,#1565c0,#1e88e5);
+  color:white;
+  border:none;
+  border-radius:16px;
+  padding:15px;
+  font-size:16px;
+  width:100%;
+  box-shadow:0 4px 12px rgba(21,101,192,0.3);
+}
+
+.boton:active{
+  transform:scale(0.98);
+}
+
+/* INPUTS */
+.input{
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+  border:1px solid #d0d7e2;
+  border-radius:14px;
+  font-size:16px;
+  background:white;
+}
+
+/* NAVEGACION */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:white;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:10px 0;
+  box-shadow:0 -2px 15px rgba(0,0,0,0.1);
+  z-index:200;
+}
+
+.nav-btn{
+  background:none;
+  border:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:12px;
+  color:#1565c0;
+}
+
+.nav-icon{
+  font-size:22px;
+  margin-bottom:3px;
+}
+
+/* ANIMACION */
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
