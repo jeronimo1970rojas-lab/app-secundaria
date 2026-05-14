@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   // PEGA TU URL DE APPS SCRIPT
-  var URL = "https://script.google.com/macros/s/AKfycbzHJTCLoQ52pk5rkLob3Kcf3DZf9uJPEIe6h1Wzk2ONUug6w9ELodyK5BWDCOSvkc7U/exec";
+  var URL = "https://script.google.com/macros/s/AKfycbyeTNzG1HQWFuVIhm277dh6yYpVu4Dk7IWNWGrea1wpbPkW7g0mx19o0w6mHjlLJsbc/exec";
 
   // PANTALLA INICIAL
   document.getElementById("contenido").innerHTML = `
@@ -239,6 +239,7 @@ function mostrarPanel(data) {
 
   window.notasActuales = data.notas;
   window.disciplinaActual = data.disciplina;
+  window.academicoActual = data.academico;
   window.nombreAlumno = data.nombre;
   console.log(data.usuario);
 
@@ -324,7 +325,14 @@ function mostrarPanel(data) {
         Disciplina
 
       </button>
+<button
+  class="nav-btn"
+  onclick="mostrarAcademico()">
 
+  <span class="nav-icon">🎓</span>
+  Academico
+
+</button>
     </div>
 
   `;
@@ -490,3 +498,51 @@ window.mostrarDisciplina = function(){
 
 }
 });
+window.mostrarAcademico = function(){
+
+  let academico =
+    window.academicoActual;
+
+  let html = "";
+
+  if(academico.length == 0){
+
+    html = `
+      <div class="card">
+
+        <div class="card-title">
+          🎓 Excelente
+        </div>
+
+        Sin observaciones académicas
+
+      </div>
+    `;
+
+  } else {
+
+    academico.forEach(a => {
+
+      html += `
+
+        <div class="card">
+
+          <div class="card-title">
+            🎓 ${a.fecha}
+          </div>
+
+          ${a.detalle}
+
+        </div>
+
+      `;
+
+    });
+
+  }
+
+  document.getElementById(
+    "contenidoPanel"
+  ).innerHTML = html;
+
+}
