@@ -326,18 +326,59 @@ data.academico.forEach(a => {
 
           </div>
 
-<button
-            onclick="cerrarSesion()"
-            style="
-              background:white;
-              border:none;
-              padding:10px 14px;
-              border-radius:12px;
-              color:#1565c0;
-              font-weight:bold;
-            ">
-            Salir
-          </button>
+<div style="
+  display:flex;
+  align-items:center;
+  gap:10px;
+">
+
+  <div
+    onclick="mostrarNotificaciones()"
+    style="
+      position:relative;
+      cursor:pointer;
+      font-size:26px;
+    ">
+
+    🔔
+
+    <span id="badgeNotif" style="
+      position:absolute;
+      top:-6px;
+      right:-10px;
+      background:red;
+      color:white;
+      border-radius:50%;
+      min-width:18px;
+      height:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:10px;
+      font-weight:bold;
+      padding:2px;
+    ">
+      0
+    </span>
+
+  </div>
+
+  <button
+    onclick="cerrarSesion()"
+    style="
+      background:white;
+      border:none;
+      padding:10px 14px;
+      border-radius:12px;
+      color:#1565c0;
+      font-weight:bold;
+    ">
+
+    Salir
+
+  </button>
+
+</div>
 
         </div>
 
