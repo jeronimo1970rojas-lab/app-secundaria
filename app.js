@@ -442,10 +442,31 @@ data.academico.forEach(a => {
 ).innerHTML = html;
 
 // ACTUALIZAR CONTADOR
-document.getElementById(
-  "badgeNotif"
-).innerText =
-  window.notificaciones.length;
+let badge =
+  document.getElementById(
+    "badgeNotif"
+  );
+
+let leidas =
+  localStorage.getItem(
+    "notificacionesLeidas"
+  );
+
+if(
+  window.notificaciones.length > 0 &&
+  leidas != "si"
+){
+
+  badge.style.display = "flex";
+
+  badge.innerText =
+    window.notificaciones.length;
+
+} else {
+
+  badge.style.display = "none";
+
+}
 
 mostrarInicio();
 
@@ -653,7 +674,16 @@ window.mostrarAcademico = function(){
 
 }
 window.mostrarNotificaciones = function(){
+// GUARDAR COMO LEIDAS
+localStorage.setItem(
+  "notificacionesLeidas",
+  "si"
+);
 
+// OCULTAR BADGE
+document.getElementById(
+  "badgeNotif"
+).style.display = "none";
   let html = "";
   document.getElementById(
   "badgeNotif"
