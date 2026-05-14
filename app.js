@@ -76,6 +76,7 @@ Jerónimo Rojas Gutierrez
     fetch(URL + "?accion=avisos")
       .then(r => r.json())
       .then(data => {
+        window.avisosActuales = data;
 
         let html = "";
 
@@ -240,6 +241,58 @@ function mostrarPanel(data) {
   window.notasActuales = data.notas;
   window.disciplinaActual = data.disciplina;
   window.academicoActual = data.academico;
+  window.notificaciones = [];
+
+// AVISOS
+if(window.avisosActuales){
+
+  window.avisosActuales.forEach(a => {
+
+    window.notificaciones.push({
+      tipo: "📢 Aviso",
+      fecha: a.fecha,
+      detalle: a.mensaje
+    });
+
+  });
+
+}
+
+// NOTAS
+data.notas.forEach(n => {
+
+  window.notificaciones.push({
+    tipo: "📘 Nota",
+    fecha: "Actualización",
+    detalle:
+      n.materia +
+      " → " +
+      n.nota
+  });
+
+});
+
+// DISCIPLINA
+data.disciplina.forEach(d => {
+
+  window.notificaciones.push({
+    tipo: "⚠️ Disciplina",
+    fecha: d.fecha,
+    detalle: d.detalle
+  });
+
+});
+
+// ACADEMICO
+data.academico.forEach(a => {
+
+  window.notificaciones.push({
+    tipo: "🎓 Académico",
+    fecha: a.fecha,
+    detalle: a.detalle
+  });
+
+});
   window.nombreAlumno = data.nombre;
   console.log(data.usuario);
 
@@ -544,5 +597,62 @@ window.mostrarAcademico = function(){
   document.getElementById(
     "contenidoPanel"
   ).innerHTML = html;
+
+}
+window.mostrarNotificaciones = function(){
+
+  let html = "";
+
+  if(window.notificaciones.length == 0){
+
+    html = `
+      <div class="card">
+        Sin notificaciones
+      </div>
+    `;
+
+  } else {
+
+    window.notificaciones.forEach(n => {
+
+      html += `
+
+        <div class="card">
+
+          <div class="card-title">
+            🔔 ${n.tipo}
+            <div style="
+  font-size:12px;
+  color:gray;
+  margin-bottom:8px;
+">
+  ${n.fecha}
+</div>
+          </div>
+
+          ${n.detalle}
+
+        </div>
+
+      `;
+
+    });
+
+  }
+
+  document.getElementById(
+    "contenidoPanel"
+  ).innerHTML = `
+
+    <h2 style="
+      margin-bottom:15px;
+      color:#1565c0;
+    ">
+      Notificaciones
+    </h2>
+
+    ${html}
+
+  `;
 
 }
