@@ -655,6 +655,9 @@ window.mostrarAcademico = function(){
 window.mostrarNotificaciones = function(){
 
   let html = "";
+  document.getElementById(
+  "badgeNotif"
+).style.display = "none";
 
   if(window.notificaciones.length == 0){
 
