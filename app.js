@@ -17,8 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
       COLEGIO BRITANICO SANTA CRUZ
     </p>
 
-    <img src="profesor.jpg" class="profesor">
-Jerónimo Rojas Gutierrez
+   <img src="profesor.jpg" class="profesor">
+
+<p style="
+  margin-top:10px;
+  font-weight:bold;
+">
+  Jerónimo Rojas Gutierrez
+</p>
     <p style="margin-top:25px;">
       Bienvenidos al Sistema Académico
     </p>
@@ -431,11 +437,17 @@ data.academico.forEach(a => {
 
   `;
 
-  document.getElementById(
-    "contenido"
-  ).innerHTML = html;
+ document.getElementById(
+  "contenido"
+).innerHTML = html;
 
-  mostrarInicio();
+// ACTUALIZAR CONTADOR
+document.getElementById(
+  "badgeNotif"
+).innerText =
+  window.notificaciones.length;
+
+mostrarInicio();
 
 }
 // CERRAR SESION
@@ -661,7 +673,7 @@ window.mostrarNotificaciones = function(){
         <div class="card">
 
           <div class="card-title">
-            🔔 ${n.tipo}
+  ${n.tipo}
             <div style="
   font-size:12px;
   color:gray;
