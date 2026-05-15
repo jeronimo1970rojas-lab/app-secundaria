@@ -338,8 +338,9 @@ data.academico.forEach(a => {
   gap:10px;
 ">
 
-  <div
-    onclick="mostrarNotificaciones()"
+ <div
+  id="campanaNotif"
+  onclick="mostrarNotificaciones()"
     style="
       position:relative;
       cursor:pointer;
@@ -464,6 +465,31 @@ if(totalActual != totalGuardado){
 
   badge.innerText =
     totalActual;
+  // ANIMAR CAMPANA
+document.getElementById(
+  "campanaNotif"
+).animate(
+[
+  { transform: "rotate(0deg)" },
+  { transform: "rotate(-15deg)" },
+  { transform: "rotate(15deg)" },
+  { transform: "rotate(0deg)" }
+],
+{
+  duration: 600,
+  iterations: 2
+}
+);
+
+// VIBRACION
+if(navigator.vibrate){
+  navigator.vibrate(300);
+}
+
+// POPUP
+mostrarPopupNotif(
+  "🔔 Tienes nuevas notificaciones"
+);
 
 } else {
 
@@ -763,5 +789,51 @@ window.mostrarNotificaciones = function(){
   document.getElementById(
   "badgeNotif"
 ).style.display = "none";
+
+}
+window.mostrarPopupNotif = function(texto){
+
+  let popup =
+    document.createElement("div");
+
+  popup.innerHTML = texto;
+
+  popup.style.position = "fixed";
+  popup.style.top = "20px";
+  popup.style.left = "50%";
+  popup.style.transform =
+    "translateX(-50%)";
+
+  popup.style.background =
+    "#1565c0";
+
+  popup.style.color = "white";
+
+  popup.style.padding =
+    "14px 22px";
+
+  popup.style.borderRadius =
+    "14px";
+
+  popup.style.zIndex = "9999";
+
+  popup.style.fontWeight =
+    "bold";
+
+  popup.style.boxShadow =
+    "0 5px 15px rgba(0,0,0,0.25)";
+
+  popup.style.animation =
+    "fadeIn 0.3s";
+
+  document.body.appendChild(
+    popup
+  );
+
+  setTimeout(() => {
+
+    popup.remove();
+
+  }, 3000);
 
 }
