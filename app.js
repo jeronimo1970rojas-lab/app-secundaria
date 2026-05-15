@@ -447,10 +447,35 @@ let badge =
     "badgeNotif"
   );
 
-let leidas =
+// TOTAL ACTUAL
+let totalActual =
+  window.notificaciones.length;
+
+// TOTAL GUARDADO
+let totalGuardado =
   localStorage.getItem(
-    "notificacionesLeidas"
+    "totalNotificaciones"
   );
+
+// SI HAY NUEVAS
+if(totalActual != totalGuardado){
+
+  badge.style.display = "flex";
+
+  badge.innerText =
+    totalActual;
+
+} else {
+
+  badge.style.display = "none";
+
+}
+
+// GUARDAR TOTAL
+localStorage.setItem(
+  "totalNotificaciones",
+  totalActual
+);
 
 if(
   window.notificaciones.length > 0 &&
@@ -675,15 +700,10 @@ window.mostrarAcademico = function(){
 }
 window.mostrarNotificaciones = function(){
 // GUARDAR COMO LEIDAS
-localStorage.setItem(
-  "notificacionesLeidas",
-  "si"
-);
+
 
 // OCULTAR BADGE
-document.getElementById(
-  "badgeNotif"
-).style.display = "none";
+
   let html = "";
   document.getElementById(
   "badgeNotif"
@@ -740,5 +760,8 @@ document.getElementById(
     ${html}
 
   `;
+  document.getElementById(
+  "badgeNotif"
+).style.display = "none";
 
 }
