@@ -1,6 +1,6 @@
 {
-  "name": "App Escolar",
-  "short_name": "BRITÁNICO",
+  "name": "Secundaria Academica",
+  "short_name": "Secundaria",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#1565c0",
