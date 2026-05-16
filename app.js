@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // PANTALLA INICIAL
   document.getElementById("contenido").innerHTML = `
-  <div class="pantalla azul">
+  <div class="pantalla roja">
 
     <img src="logo.png" class="logo">
 
