@@ -327,7 +327,7 @@ data.academico.forEach(a => {
   onerror="this.src='logo.png'">
             <div>
               <h2>${data.nombre}</h2>
-              <p>PRE-PROMO "B"</p>
+              <p>Física en acción</p>
             </div>
 
           </div>
