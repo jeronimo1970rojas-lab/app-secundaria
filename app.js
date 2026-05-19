@@ -658,7 +658,7 @@ window.mostrarDisciplina = function(){
     <div class="card">
 
       <div class="card-title">
-        ⭐ PROMEDIO GENERAL DEL TRIMESTRE 
+        ⭐ NOTA DEL PRIMER TRIMESTRE 
       </div>
 
       <div style="
